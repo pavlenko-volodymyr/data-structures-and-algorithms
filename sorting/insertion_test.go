@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestSelectionSort(t *testing.T) {
+func TestInsertionSort(t *testing.T) {
 	type testCase struct {
 		given    []int
 		expected []int
@@ -19,7 +19,7 @@ func TestSelectionSort(t *testing.T) {
 	}
 
 	for _, testCase := range testCases {
-		SelectionSort(testCase.given)
+		InsertionSort(testCase.given)
 		if !reflect.DeepEqual(testCase.given, testCase.expected) {
 			t.Errorf("Expected '%v' doesn't equal to given '%v'", testCase.expected, testCase.given)
 		}

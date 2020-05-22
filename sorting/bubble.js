@@ -1,9 +1,3 @@
-const swap = (arr, i, j) => {
-    let tmp = arr[i]
-    arr[i] = arr[j]
-    arr[j] = tmp
-}
-
 function bubbleSort(arr) {
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < arr.length - i - 1; j++) {
@@ -16,6 +10,4 @@ function bubbleSort(arr) {
     }
 }
 
-const arr = [3, 4, 1, 5, 6, 1, 7]
-bubbleSort(arr)
-console.log(arr)
+module.exports = bubbleSort
