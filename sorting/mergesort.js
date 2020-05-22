@@ -17,13 +17,8 @@ function merge(left, right) {
         }
     }
 
-    if (i < left.length) {
-        result = result.concat(left.slice(i))
-    }
-
-    if (j < right.length) {
-        result = result.concat(right.slice(j))
-    }
+    result = result.concat(left.slice(i))
+    result = result.concat(right.slice(j))
 
     return result
 }
