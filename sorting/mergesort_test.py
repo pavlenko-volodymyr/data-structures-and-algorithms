@@ -14,3 +14,13 @@ def test_mergesort():
     given = merge_sort(arr)
     expected = [-1, 1, 2, 3, 4, 6, 6, 100]
     assert given == expected
+
+    arr = []
+    given = merge_sort(arr)
+    expected = []
+    assert given == expected
+
+    arr = [2, 1]
+    given = merge_sort(arr)
+    expected = [1, 2]
+    assert given == expected
