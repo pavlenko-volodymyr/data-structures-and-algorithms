@@ -11,12 +11,38 @@ class SinglyLinkedList {
         this.head = null
         this.tail = null
     }
+    isEmpty() {
+        return this.head === null
+    }
     push(val) {
-        this.tail = new Node(val)
-        this.length++
-        if (this.head === null) {
-            this.head = this.tail
+        const newNode = new Node(val)
+        if (this.isEmpty()) {
+            this.head = newNode
+            this.tail = newNode
+        } else {
+            this.tail.next = newNode
+            this.tail = newNode
         }
+        this.length++
+    }
+    pop() {
+        if (this.isEmpty()) {
+            return
+        }
+        let current = this.head
+        let newTail = current
+        while (current.next !== null) {
+            newTail = current
+            current = current.next
+        }
+        if (current === this.head) {
+            this.head = null
+            this.tail = null
+        } else {
+            this.tail = newTail
+            this.tail.next = null
+        }
+        return current
     }
 }
 

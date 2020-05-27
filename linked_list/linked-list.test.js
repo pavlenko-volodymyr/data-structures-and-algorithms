@@ -15,3 +15,19 @@ test('singly linked list, push', () => {
     expect(list.head.val).toEqual("first")
     expect(list.tail.val).toEqual("second")
 })
+
+test('singly linked list, pop', () => {
+    const list = new SinglyLinkedList()
+    expect(list.pop()).toEqual(undefined)
+
+    list.push("first")
+    expect(list.length).toEqual(1)
+    expect(list.pop().val).toEqual("first")
+    expect(list.pop()).toEqual(undefined)
+
+    list.push("first")
+    list.push("second")
+    expect(list.pop().val).toEqual("second")
+    expect(list.pop().val).toEqual("first")
+    expect(list.pop()).toEqual(undefined)
+})
