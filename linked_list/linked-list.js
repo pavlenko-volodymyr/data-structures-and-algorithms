@@ -38,9 +38,11 @@ class SinglyLinkedList {
         if (current === this.head) {
             this.head = null
             this.tail = null
+            this.length = 0
         } else {
             this.tail = newTail
             this.tail.next = null
+            this.length--
         }
         return current
     }
