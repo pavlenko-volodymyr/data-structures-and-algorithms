@@ -88,3 +88,19 @@ test('singly linked list, set', () => {
     list.set(2, "one")
     expect(list.get(2).val).toEqual("one")
 })
+
+test('singly linked list, reverse', () => {
+    const list = new SinglyLinkedList()
+    list.push("one")
+    list.push("two")
+    list.push("three")
+    expect(list.get(0).val).toEqual("one")
+    expect(list.get(1).val).toEqual("two")
+    expect(list.get(2).val).toEqual("three")
+
+    list.reverse()
+
+    expect(list.get(2).val).toEqual("one")
+    expect(list.get(1).val).toEqual("two")
+    expect(list.get(0).val).toEqual("three")
+})

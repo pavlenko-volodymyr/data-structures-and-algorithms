@@ -120,6 +120,23 @@ class SinglyLinkedList {
         prevNode.next = prevNode.next.next
         return true
     }
+    reverse() {
+        if (this.isEmpty()) {
+            return false
+        }
+
+        let prev = null
+        let current = this.head
+        this.tail = this.head
+        while (current) {
+            const next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        }
+        this.head = prev
+        return true
+    }
 }
 
 module.exports = {
