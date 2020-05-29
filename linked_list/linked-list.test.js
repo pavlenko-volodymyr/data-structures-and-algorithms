@@ -72,3 +72,19 @@ test('singly linked list, get', () => {
     expect(list.get(0).val).toEqual("one")
     expect(list.get(100)).toEqual(undefined)
 })
+
+test('singly linked list, set', () => {
+    const list = new SinglyLinkedList()
+    expect(list.set(0, "one")).toEqual(false)
+
+    list.push("one")
+    list.push("two")
+    list.push("three")
+
+    list.set(0, "two")
+    expect(list.get(0).val).toEqual("two")
+    list.set(1, "three")
+    expect(list.get(1).val).toEqual("three")
+    list.set(2, "one")
+    expect(list.get(2).val).toEqual("one")
+})

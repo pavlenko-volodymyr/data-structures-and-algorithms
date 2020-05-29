@@ -80,6 +80,14 @@ class SinglyLinkedList {
         }
         return node
     }
+    set(index, val) {
+        const node = this.get(index)
+        if (node === undefined) {
+            return false
+        }
+        node.val = val
+        return node
+    }
 }
 
 module.exports = {
