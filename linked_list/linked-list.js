@@ -46,6 +46,40 @@ class SinglyLinkedList {
         }
         return current
     }
+    shift() {
+        if (this.isEmpty()) {
+            return
+        }
+        const currentHead = this.head
+        this.head = currentHead.next
+        this.length--
+        if (this.length === 0) {
+            this.tail = null
+        }
+        return currentHead
+    }
+    unshift(val) {
+        const newNode = new Node(val)
+        if (this.isEmpty()) {
+            this.head = newNode
+            this.tail = newNode
+        } else {
+            newNode.next = this.head
+            this.head = newNode
+        }
+        this.length++
+    }
+    get(index) {
+        if (index < 0 || index >= this.length) {
+            return undefined
+        }
+        let node = this.head
+        while (index) {
+            node = node.next
+            index--
+        }
+        return node
+    }
 }
 
 module.exports = {
