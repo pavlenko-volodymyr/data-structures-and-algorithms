@@ -1,7 +1,7 @@
 class Node {
-    constructor(val) {
+    constructor(val, next=null) {
         this.val = val
-        this.next = null
+        this.next = next
     }
 }
 
@@ -86,7 +86,39 @@ class SinglyLinkedList {
             return false
         }
         node.val = val
-        return node
+        return true
+    }
+    insert(index, val) {
+        if (index < 0 || index > this.length) {
+            return false
+        }
+        if (index === 0) {
+            this.unshift(val)
+            return true
+        }
+        if (index === this.length) {
+            this.push(val)
+            return true
+        }
+        const prevNode = this.get(index - 1)
+        prevNode.next = new Node(val, prevNode.next)
+        return true
+    }
+    remove(index) {
+        if (index < 0 || index > this.length) {
+            return false
+        }
+        if (index === 0) {
+            this.shift()
+            return true
+        }
+        if (index === this.length - 1) {
+            this.pop()
+            return true
+        }
+        const prevNode = this.get(index - 1)
+        prevNode.next = prevNode.next.next
+        return true
     }
 }
 
