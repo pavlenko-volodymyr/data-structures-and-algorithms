@@ -18,3 +18,7 @@ def test_stack():
     value = s.pop()
     assert value == 1
     assert s.size == 0
+
+    value = s.pop()
+    assert value == None
+    assert s.size == 0
