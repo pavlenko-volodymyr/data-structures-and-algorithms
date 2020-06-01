@@ -40,6 +40,21 @@ class DoublyLinkedList {
         this.length--
         return poppedNode
     }
+    shift() {
+        let shiftedNode
+        if (this.length === 0) return shiftedNode
+        shiftedNode = this.head
+        if (this.length === 1) {
+            this.head = null
+            this.tail = null
+        } else {
+            this.head = shiftedNode.next
+            this.head.prev = null
+            shiftedNode.next = null
+        }
+        this.length--
+        return shiftedNode
+    }
 }
 
 module.exports = {
