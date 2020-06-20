@@ -1,4 +1,4 @@
-from tree.dfs import dfs_walk
+from tree.dfs import dfs_walk_preorder, dfs_walk_postorder, dfs_walk_inorder
 from tree.binary_search_tree import BinarySearchTree
 
 
@@ -14,5 +14,12 @@ def test_dfs():
     tree.insert(1)
     tree.insert(5)
     tree.insert(11)
-    values = dfs_walk(tree)
+
+    values = dfs_walk_preorder(tree)
     assert values == [10, 3, 2, 1, 5, 15, 11, 20, 16, 40]
+
+    values = dfs_walk_postorder(tree)
+    assert values == [1, 2, 5, 3, 11, 16, 40, 20, 15, 10]
+
+    values = dfs_walk_inorder(tree)
+    assert values == [1, 2, 3, 5, 10, 11, 15, 16, 20, 40]
