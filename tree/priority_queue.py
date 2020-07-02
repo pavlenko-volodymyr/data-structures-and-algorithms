@@ -21,7 +21,7 @@ class PriorityQueue:
     def __bubble_down(self):
         index = 0
         total_values = len(self.values)
-        
+
         while True:
             node = self.values[index]
             left_child_index = 2 * index + 1
@@ -30,14 +30,14 @@ class PriorityQueue:
 
             if left_child_index < total_values and self.__has_lower_priority(left_child_index, index):
                 swap_index = left_child_index
-            
+
             if (
                 right_child_index < total_values and
                 self.__has_lower_priority(right_child_index, index) and
                 self.__has_lower_priority(right_child_index, left_child_index)
             ):
                 swap_index = right_child_index
-            
+
             if swap_index is None:
                 break
 
@@ -53,12 +53,12 @@ class PriorityQueue:
     def dequeue(self):
         if not self.values:
             return
-        
+
         node = self.values[0]
         self.values[0] = self.values[-1]
         self.values.pop()
 
         if self.values:
             self.__bubble_down()
-        
+
         return node.value
