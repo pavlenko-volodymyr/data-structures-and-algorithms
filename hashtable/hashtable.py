@@ -28,3 +28,22 @@ class HashTable:
         for (key, value) in chain:
             if key == lookup_key:
                 return value
+    
+    def pairs(self):
+        for chain in self.array:
+            if not chain:
+               continue
+            for pair in chain:
+                yield pair
+    
+    def keys(self):
+        keys = []
+        for key, _ in self.pairs():
+            keys.append(key)
+        return keys
+    
+    def values(self):
+        values = []
+        for _, value in self.pairs():
+            values.append(value)
+        return values
